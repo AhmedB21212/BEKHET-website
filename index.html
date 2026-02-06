@@ -1,171 +1,177 @@
-
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>أحمد بخيت | مهندس برمجيات</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bekhet | Software Engineer</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        body { font-family: 'Cairo', sans-serif; }
+        html{
+
+                        scroll-behavior: smooth;
+
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f9fafb;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react/": "https://esm.sh/react@^19.2.4/"
-  }
-}
-</script>
 </head>
-<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0">
-                    <span style="letter-spacing: 1.4px;" class="text-2xl font-black text-indigo-600 tracking-tighter">BEKHET</span>
-                </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
-                    <a href="#home" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">الرئيسية</a>
-                    <a href="#about" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">من أنا</a>
-                    <a href="#services" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors">خدماتي</a>
-                    <a href="#contact" class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 font-bold transition-all">تواصل معي</a>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 text-slate-600">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 p-4 space-y-4 shadow-lg text-center">
-            <a href="#home" class="block text-slate-600 font-medium py-2">الرئيسية</a>
-            <a href="#about" class="block text-slate-600 font-medium py-2">من أنا</a>
-            <a href="#services" class="block text-slate-600 font-medium py-2">خدماتي</a>
-            <a href="#contact" class="block text-indigo-600 font-bold py-2">تواصل معي</a>
-        </div>
-    </nav>
+<body class="min-h-screen flex flex-col">
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-16 pb-24 md:pt-24 md:pb-32 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-            <div class="w-full lg:w-1/2 text-center lg:text-right">
-                <div class="inline-block px-4 py-1.5 mb-6 bg-indigo-50 text-indigo-600 rounded-full text-sm font-bold tracking-wide">متاح للمشاريع الجديدة 🚀</div>
-                <h1 class="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-tight mb-8">أصمم بوابتك <br/><span class="text-indigo-600">للعالم الرقمي</span></h1>
-                <p class="text-lg md:text-xl text-slate-500 max-w-xl mb-12 mx-auto lg:mx-0">أهلاً، أنا <span class="font-bold text-slate-900">أحمد بخيت</span>. مهندس برمجيات متخصص في تحويل خبرات المحترفين والموظفين إلى مواقع شخصية جذابة تبرز مهاراتهم.</p>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                    <a href="#contact" class="w-full sm:w-auto px-10 py-4 bg-indigo-600 text-white rounded-full font-bold text-lg shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all hover:-translate-y-1">ابدأ مشروعك</a>
-                    <a href="#services" class="w-full sm:w-auto px-10 py-4 border-2 border-slate-200 text-slate-600 rounded-full font-bold text-lg hover:bg-white hover:border-indigo-600 hover:text-indigo-600 transition-all">خدماتي</a>
-                </div>
-            </div>
-            <div class="w-full lg:w-1/2 relative flex justify-center">
-                <div class="absolute -top-6 -left-6 md:-top-12 md:-left-12 w-48 h-48 md:w-64 md:h-64 bg-indigo-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-[3rem] overflow-hidden border-[8px] md:border-[12px] border-white shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="أحمد بخيت" class="w-full h-full object-cover">
-                </div>
-            </div>
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass-card px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center font-bold text-xl text-white">
+            B
         </div>
-    </section>
+        <span class="text-xl font-bold tracking-tight">Bekhet</span>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 md:py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-8 md:mb-12">من أنا؟</h2>
-            <div class="p-8 md:p-10 bg-slate-50 rounded-[30px] md:rounded-[40px] border border-slate-100 shadow-sm relative italic">
-                <p class="text-xl md:text-2xl text-slate-700 leading-relaxed">
-                    "اسمي <span class="text-indigo-600 font-bold">أحمد بخيت</span>، مهندس برمجيات متخصص في الـ Front-end. أؤمن بأن كل موظف يستحق واجهة رقمية تعكس جودة عمله، وأسعى دائماً لاستخدام أحدث التقنيات لبناء مواقع سريعة وجذابة."
+    <div class="hidden md:flex items-center gap-8">
+        <a href="#home" class="nav-item text-sm font-medium text-blue-500 hover:text-blue-400">Home</a>
+        <a href="#services" class="nav-item text-sm font-medium text-gray-400 hover:text-blue-400">Services</a>
+        <a href="#contact" class="nav-item text-sm font-medium text-gray-400 hover:text-blue-400">Contact</a>
+    </div>
+
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+        class="hidden md:block px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition text-sm font-semibold"> Let's Go !
+        </button>
+</nav>
+
+<main class="flex-grow pt-20">
+
+<!-- Hero -->
+<section id="home" class="min-h-[90vh] flex items-center justify-center px-6 relative overflow-hidden">
+    <div class="absolute top-0 -left-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 -right-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px]"></div>
+
+    <div class="max-w-5xl text-center relative z-10">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 tracking-tight animate-in">
+            Hello I am <span class="gradient-text">Ahmed Bekhet</span><br>
+            <span class="text-green-500">Software</span> Engineer
+        </h1>
+
+        <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 animate-in">
+            I design personal and business website pages that help employees and companies enter the digital space .
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 animate-in">
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                class="px-10 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold shadow-lg">
+                Get In Touch
+            </button>
+            <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})"
+                class="px-10 py-4 bg-gray-900 border border-gray-800 hover:bg-gray-800 rounded-xl font-bold">
+                My Services
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-24 bg-gray-950/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h3 class="text-blue-500 font-mono text-sm mb-4">Services</h3>
+            <h2 class="text-4xl md:text-5xl font-bold">What I can do for you</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-3xl hover:border-blue-500/50 transition">
+                <div class="text-5xl mb-6">👤</div>
+                <h4 class="text-2xl font-bold mb-4">Personal Website</h4>
+                <p class="text-gray-400">
+                    Clean and professional personal websites to showcase your skills and identity.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl hover:border-blue-500/50 transition">
+                <div class="text-5xl mb-6">🛒</div>
+                <h4 class="text-2xl font-bold mb-4">E-commerce Website</h4>
+                <p class="text-gray-400">
+                    Fast, scalable online stores with modern UI and easy management.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl hover:border-blue-500/50 transition">
+                <div class="text-5xl mb-6">🏢</div>
+                <h4 class="text-2xl font-bold mb-4">Business Website</h4>
+                <p class="text-gray-400">
+                    Strong digital presence for companies and startups.
                 </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-12 md:mb-16">خدماتي للمحترفين</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 md:p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all">
-                    <div class="text-5xl mb-6">📄</div>
-                    <h3 class="text-xl font-bold mb-4">مواقع شخصية للموظفين</h3>
-                    <p class="text-slate-500 leading-relaxed">نحول سيرتك الذاتية من مجرد ملف PDF إلى موقع ويب تفاعلي يبرز إنجازاتك بشكل احترافي.</p>
-                </div>
-                <div class="bg-white p-8 md:p-10 rounded-3xl border-2 border-indigo-600 shadow-xl shadow-indigo-100 transform md:-translate-y-4">
-                    <div class="text-5xl mb-6">✨</div>
-                    <h3 class="text-xl font-bold mb-4 text-indigo-600">تصميم الهوية الرقمية</h3>
-                    <p class="text-slate-600 leading-relaxed">نساعدك في اختيار الألوان، الخطوط، والأسلوب البصري الذي يعكس هويتك المهنية الفريدة.</p>
-                </div>
-                <div class="bg-white p-8 md:p-10 rounded-3xl border border-slate-100 hover:shadow-2xl transition-all">
-                    <div class="text-5xl mb-6">📱</div>
-                    <h3 class="text-xl font-bold mb-4">أداء مثالي وسريع</h3>
-                    <p class="text-slate-500 leading-relaxed">مواقع سريعة التحميل، آمنة، ومتوافقة تماماً مع كافة الشاشات من الموبايل إلى الكمبيوتر.</p>
-                </div>
+<!-- Contact -->
+<section id="contact" class="py-24">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+        <h3 class="text-blue-500 font-mono text-sm mb-4">Contact</h3>
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-12">Let's Connect</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-3xl">
+                <h4 class="font-bold mb-2">Email</h4>
+                <a href="mailto:ahmedlearn21212@gmail.com" class="text-blue-400 font-bold">
+                    ahmedlearn21212@gmail.com
+                </a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl">
+                <h4 class="font-bold mb-2">WhatsApp</h4>
+                <a href="https://wa.me/201008432754" class="text-green-400 font-bold">
+                    +20 100 843 2754
+                </a>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl">
+                <h4 class="font-bold mb-2">Location</h4>
+                <p class="text-purple-400 font-bold">Mansoura, Egypt</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">تواصل معي الآن</h2>
-            <p class="text-slate-500 mb-12 md:mb-16 text-lg">جاهز للبدء في مشروعك القادم؟ لا تتردد في مراسلتي.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-8 max-w-3xl mx-auto">
-                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 flex-1 flex flex-col items-center hover:border-indigo-200 transition-colors">
-                    <div class="text-indigo-600 text-4xl mb-4">📧</div>
-                    <p class="text-slate-400 text-xs mb-1">البريد الإلكتروني</p>
-                    <a href="mailto:ahmedlearn21212@gmail.com" class="text-lg md:text-xl font-bold hover:text-indigo-600 transition-colors break-all">ahmedlearn21212@gmail.com</a>
-                </div>
-                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 flex-1 flex flex-col items-center hover:border-indigo-200 transition-colors">
-                    <div class="text-indigo-600 text-4xl mb-4">📍</div>
-                    <p class="text-slate-400 text-xs mb-1">المقر</p>
-                    <p class="text-lg md:text-xl font-bold">المنصورة، جمهورية مصر العربية</p>
-                </div>
-            </div>
-        </div>
-    </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 py-12 text-center text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <span class="text-2xl font-black text-indigo-400 tracking-tighter block mb-4">AHMED</span>
-            <div class="flex justify-center space-x-6 space-x-reverse mb-8">
-                <a href="#" class="text-slate-400 hover:text-white transition-colors">LinkedIn</a>
-                <a href="#" class="text-slate-400 hover:text-white transition-colors">Twitter</a>
-                <a href="#" class="text-slate-400 hover:text-white transition-colors">GitHub</a>
-            </div>
-            <p class="text-slate-500 text-sm">© 2026 أحمد بخيت. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer class="py-10 border-t border-gray-900 glass-card text-center">
+    <p class="text-gray-500 text-sm font-mono">
+        © <span id="year"></span> Ahmed Bekhet
+    </p>
+</footer>
 
-    <script>
-        // التحكم في القائمة الجانبية (Mobile Menu)
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.onclick = () => {
-            mobileMenu.classList.toggle('hidden');
-        };
+<script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+</script>
 
-        // التمرير السلس وإغلاق القائمة بعد الاختيار
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.onclick = (e) => {
-                const href = anchor.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-                mobileMenu.classList.add('hidden');
-            };
-        });
-    </script>
 </body>
 </html>
